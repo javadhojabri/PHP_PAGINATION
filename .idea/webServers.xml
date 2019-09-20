@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="36d8515c-e426-4b8c-a684-3e4727c0a513" name="PHP" url="http://localhost/PHP_PAGINATION/PHP_PAGINATION/">
+        <fileTransfer port="0" accessType="LOCAL" />
+      </webServer>
+    </option>
+  </component>
+</project>
