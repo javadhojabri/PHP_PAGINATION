@@ -3,6 +3,7 @@
 use App\pagination\Builder;
 use \Doctrine\DBAL\Configuration;
 use \Doctrine\DBAL\DriverManager;
+use App\pagination\Results;
 
 require_once 'vendor/autoload.php';
 $config = new Configuration();
@@ -17,4 +18,5 @@ $queryBuilder = $connection->createQueryBuilder();
 $queryBuilder->select('*')->from('users');
 $queryBuilder->execute()->fetchAll();
 $builder = new Builder($queryBuilder);
-$builder->paginate($_GET['page'] ?? 1, 10);
+$user = $builder->paginate($_GET['page'] ?? 1, 10);
+print_r($user->get());
