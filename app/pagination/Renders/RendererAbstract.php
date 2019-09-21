@@ -3,10 +3,10 @@
 namespace App\pagination\Renders;
 
 use App\pagination\Meta;
+use App\pagination\Renders\pageIterator;
 
 abstract class RendererAbstract
 {
-
     protected $meta;
 
     public function __construct(Meta $meta)
@@ -23,7 +23,8 @@ abstract class RendererAbstract
             array_slice($range, max(1, ($this->meta->page() - $lrcount) - $enddiifference)), 0, ($lrcount * 2));
         array_unshift($range, 1);
         $range[] = $this->meta->lastPage();
-        return array_unique($range);
+        return new pageIterator(array_unique($range), $this->meta);
     }
+
     abstract public function render();
 }

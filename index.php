@@ -21,5 +21,4 @@ $queryBuilder->execute()->fetchAll();
 $builder = new Builder($queryBuilder);
 $user = $builder->paginate($_GET['page'] ?? 1, 10);
 //print_r($user->get());
-
 print_r($user->render());
