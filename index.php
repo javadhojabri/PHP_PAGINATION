@@ -19,6 +19,10 @@ $queryBuilder = $connection->createQueryBuilder();
 $queryBuilder->select('*')->from('users');
 $queryBuilder->execute()->fetchAll();
 $builder = new Builder($queryBuilder);
-$user = $builder->paginate($_GET['page'] ?? 1, 10);
-//print_r($user->get());
-print_r($user->render());
+$users = $builder->paginate($_GET['page'] ?? 1, 10);
+
+foreach ($users->get() as $user) {
+    echo $user['id'] . "  " . $user['first_name'] . "<br>";
+}
+
+print_r($users->render());
